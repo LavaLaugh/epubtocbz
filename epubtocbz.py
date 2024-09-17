@@ -29,7 +29,6 @@ if not os.path.exists("output"):
 index = 1
 for file in path:
     folder = file.replace(".epub", "")
-    os.makedirs(folder)
 
     print("INFO: Converting EPUB " + folder + " to zip...")
     os.system("ebook-convert " + file + " " + folder + ".zip")
@@ -40,5 +39,4 @@ for file in path:
     os.system("cbconvert convert --format " + format + " --quality " + quality + " --no-nonimage=true --outdir output/ " + zip)
 
     index += 1
-    shutil.rmtree(folder)
     os.remove(zip)
